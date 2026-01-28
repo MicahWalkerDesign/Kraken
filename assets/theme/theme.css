@@ -1,0 +1,505 @@
+/**
+ * Deep Voltage Theme
+ * ==================
+ * A bold, industrial design system for Kraken HVAC & Electrical
+ * 
+ * Usage:
+ * - Electric Gold accents → Electrical service pages
+ * - Pressure Gauge Blue accents → Air Conditioning/Fluids pages
+ */
+
+:root {
+  /* ═══════════════════════════════════════════════
+     COLOR PALETTE
+     ═══════════════════════════════════════════════ */
+  
+  /* Primary Brand - Deep, trustworthy, unique for the trades */
+  --color-primary: #3B1C5A;
+  --color-primary-rgb: 59, 28, 90;
+  --color-primary-light: #5a2d87;
+  --color-primary-dark: #2a1340;
+  
+  /* Action - High visibility for CTAs (from lightning bolt) */
+  --color-action: #FFD700;
+  --color-action-rgb: 255, 215, 0;
+  --color-action-light: #ffe033;
+  --color-action-dark: #ccac00;
+  --color-action-hover: #fff0a0;
+  
+  /* Secondary - Freshness, represents Air/Cooling */
+  --color-secondary: #5BC0EB;
+  --color-secondary-rgb: 91, 192, 235;
+  --color-secondary-light: #8ad4f2;
+  --color-secondary-dark: #2da8d8;
+  
+  /* Neutral - Metallic finish for industrial feel */
+  --color-neutral: #E0E0E0;
+  --color-neutral-rgb: 224, 224, 224;
+  --color-neutral-light: #f5f5f5;
+  --color-neutral-dark: #b0b0b0;
+  --color-neutral-muted: #888888;
+  
+  /* Background - Dark mode base for neon pop */
+  --color-background: #121212;
+  --color-background-rgb: 18, 18, 18;
+  --color-background-elevated: #1e1e1e;
+  --color-background-card: #252525;
+  --color-background-hover: #2a2a2a;
+  
+  /* Service-Specific Accent Colors */
+  --color-electrical: var(--color-action);       /* Electric Gold */
+  --color-hvac: var(--color-secondary);          /* Pressure Gauge Blue */
+  
+  /* Semantic Colors */
+  --color-success: #4CAF50;
+  --color-warning: var(--color-action);
+  --color-error: #EF5350;
+  --color-info: var(--color-secondary);
+
+  /* ═══════════════════════════════════════════════
+     TYPOGRAPHY
+     ═══════════════════════════════════════════════ */
+  
+  /* Font Families - Industrial strength, mobile-friendly */
+  --font-headline: 'Montserrat', 'Oswald', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Roboto Mono', 'Fira Code', monospace;
+  
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+  
+  /* Font Sizes - Fluid scale */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+  --font-size-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  --font-size-3xl: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  --font-size-4xl: clamp(2.5rem, 2rem + 3vw, 4rem);
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* ═══════════════════════════════════════════════
+     SPACING & LAYOUT
+     ═══════════════════════════════════════════════ */
+  
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  --spacing-3xl: 4rem;      /* 64px */
+  --spacing-4xl: 6rem;      /* 96px */
+
+  /* Container Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* ═══════════════════════════════════════════════
+     UI ELEMENTS
+     ═══════════════════════════════════════════════ */
+  
+  /* Border Radius - Mimics circular badge of logo */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Recommended UI radius (from design spec) */
+  --radius-button: var(--radius-md);      /* 8px */
+  --radius-card: var(--radius-lg);        /* 12px */
+  --radius-container: var(--radius-lg);   /* 12px */
+  
+  /* Border Widths */
+  --border-thin: 1px;
+  --border-medium: 2px;
+  --border-thick: 3px;
+
+  /* ═══════════════════════════════════════════════
+     SHADOWS & DEPTH
+     ═══════════════════════════════════════════════ */
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.6);
+  
+  /* Glow Effects - For neon pop on dark mode */
+  --glow-gold: 0 0 20px rgba(255, 215, 0, 0.4);
+  --glow-gold-intense: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.3);
+  --glow-blue: 0 0 20px rgba(91, 192, 235, 0.4);
+  --glow-blue-intense: 0 0 30px rgba(91, 192, 235, 0.6), 0 0 60px rgba(91, 192, 235, 0.3);
+  --glow-purple: 0 0 20px rgba(59, 28, 90, 0.4);
+
+  /* ═══════════════════════════════════════════════
+     TRANSITIONS & ANIMATIONS
+     ═══════════════════════════════════════════════ */
+  
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ═══════════════════════════════════════════════
+     GRADIENTS & TEXTURES
+     ═══════════════════════════════════════════════ */
+  
+  /* Premium dark gradients (for header/footer) */
+  --gradient-dark: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-background) 100%);
+  --gradient-radial-dark: radial-gradient(ellipse at center, var(--color-primary-dark) 0%, var(--color-background) 70%);
+  
+  /* Metallic sheen effect */
+  --gradient-metallic: linear-gradient(
+    135deg,
+    rgba(224, 224, 224, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(224, 224, 224, 0.1) 100%
+  );
+  
+  /* Service-specific gradients */
+  --gradient-electrical: linear-gradient(135deg, var(--color-action) 0%, var(--color-action-dark) 100%);
+  --gradient-hvac: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  color: var(--color-neutral);
+  background-color: var(--color-background);
+}
+
+/* ═══════════════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ═══════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-neutral-light);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-action);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-action-hover);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BUTTON COMPONENTS
+   ═══════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-headline);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+/* Primary CTA - Electric Gold (maximum visibility) */
+.btn-primary {
+  background: var(--color-action);
+  color: var(--color-background);
+  box-shadow: var(--glow-gold);
+}
+
+.btn-primary:hover {
+  background: var(--color-action-hover);
+  box-shadow: var(--glow-gold-intense);
+  transform: translateY(-2px);
+}
+
+/* Secondary - For Air Conditioning pages */
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-background);
+  box-shadow: var(--glow-blue);
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary-light);
+  box-shadow: var(--glow-blue-intense);
+  transform: translateY(-2px);
+}
+
+/* Ghost/Outline button */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-neutral);
+  border: var(--border-medium) solid var(--color-neutral-dark);
+}
+
+.btn-ghost:hover {
+  background: var(--color-background-hover);
+  border-color: var(--color-action);
+  color: var(--color-action);
+}
+
+/* ═══════════════════════════════════════════════════════
+   CARD COMPONENTS
+   ═══════════════════════════════════════════════════════ */
+
+.card {
+  background: var(--color-background-card);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-lg);
+  border: var(--border-thin) solid rgba(255, 255, 255, 0.05);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  background: var(--color-background-hover);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Service-specific cards */
+.card-electrical {
+  border-left: 4px solid var(--color-electrical);
+}
+
+.card-electrical:hover {
+  box-shadow: var(--glow-gold), var(--shadow-lg);
+}
+
+.card-hvac {
+  border-left: 4px solid var(--color-hvac);
+}
+
+.card-hvac:hover {
+  box-shadow: var(--glow-blue), var(--shadow-lg);
+}
+
+/* ═══════════════════════════════════════════════════════
+   CONTAINER UTILITIES
+   ═══════════════════════════════════════════════════════ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+.container-sm { max-width: var(--container-sm); }
+.container-md { max-width: var(--container-md); }
+.container-lg { max-width: var(--container-lg); }
+
+/* ═══════════════════════════════════════════════════════
+   SECTION LAYOUTS
+   ═══════════════════════════════════════════════════════ */
+
+.section {
+  padding-block: var(--spacing-3xl);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.section-title {
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+  color: var(--color-neutral-muted);
+  font-size: var(--font-size-lg);
+}
+
+/* Premium header/footer with metallic texture */
+.header-premium,
+.footer-premium {
+  background: var(--gradient-dark);
+  position: relative;
+}
+
+.header-premium::after,
+.footer-premium::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-metallic);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FORM ELEMENTS
+   ═══════════════════════════════════════════════════════ */
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-neutral);
+  background: var(--color-background-elevated);
+  border: var(--border-thin) solid var(--color-neutral-dark);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--color-action);
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+}
+
+.input::placeholder {
+  color: var(--color-neutral-muted);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SERVICE SPLIT UTILITIES
+   ═══════════════════════════════════════════════════════ */
+
+/* Dual-service color coding */
+.accent-electrical {
+  --accent-color: var(--color-electrical);
+  --accent-glow: var(--glow-gold);
+}
+
+.accent-hvac {
+  --accent-color: var(--color-hvac);
+  --accent-glow: var(--glow-blue);
+}
+
+.accent-electrical .section-title,
+.accent-electrical .card-title {
+  color: var(--color-electrical);
+}
+
+.accent-hvac .section-title,
+.accent-hvac .card-title {
+  color: var(--color-hvac);
+}
+
+/* ═══════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════ */
+
+/* Text colors */
+.text-primary { color: var(--color-primary); }
+.text-action { color: var(--color-action); }
+.text-secondary { color: var(--color-secondary); }
+.text-neutral { color: var(--color-neutral); }
+.text-muted { color: var(--color-neutral-muted); }
+
+/* Backgrounds */
+.bg-primary { background-color: var(--color-primary); }
+.bg-background { background-color: var(--color-background); }
+.bg-elevated { background-color: var(--color-background-elevated); }
+.bg-card { background-color: var(--color-background-card); }
+
+/* Spacing */
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+/* Flex utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-center { align-items: center; justify-content: center; }
+.flex-between { justify-content: space-between; }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+
+/* Grid utilities */
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding-block: var(--spacing-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    padding: var(--spacing-md);
+  }
+}

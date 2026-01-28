@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kraken Air & Electrical
+
+Professional air conditioning and electrical services website for Perth's Northern Suburbs.
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8)
+
+## Features
+
+- 🗓️ **Real-time Booking Calendar** - Weekday-only appointment scheduling
+- 🧲 **Magnetic Buttons** - Interactive hero CTAs with cursor-following effect
+- 🔒 **Security Headers** - CSP, HSTS, COOP, X-Frame-Options
+- ⚡ **Optimized Performance** - Font preloading, CSS optimization
+- 📱 **Responsive Design** - Mobile-first dark theme
+- 📧 **Telegram Notifications** - Instant booking alerts
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS v4 + CSS Variables
+- **Fonts**: Montserrat, Roboto (Google Fonts)
+- **Deployment**: Vercel-ready
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# Telegram Notifications
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
 
-## Learn More
+# Google Calendar (optional)
+GOOGLE_CLIENT_ID=xxx
+GOOGLE_CLIENT_SECRET=xxx
+GOOGLE_REFRESH_TOKEN=xxx
 
-To learn more about Next.js, take a look at the following resources:
+# Email (optional)
+RESEND_API_KEY=xxx
+NOTIFICATION_EMAIL=your@email.com
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Service Areas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Joondalup
+- Wanneroo  
+- Mindarie
+- Clarkson
+- Butler
+- Alkimos
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2026 Kraken Air & Electrical. All rights reserved.

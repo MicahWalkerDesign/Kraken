@@ -61,7 +61,10 @@ const nextConfig: NextConfig = {
   },
 
   // Base path for GitHub Pages (repo name)
-  basePath: process.env.NODE_ENV === "production" ? "/Kraken" : "",
+  basePath: "/Kraken",
+
+  // Asset prefix for static files
+  assetPrefix: "/Kraken",
 
   // Trailing slashes for static hosting compatibility
   trailingSlash: true,

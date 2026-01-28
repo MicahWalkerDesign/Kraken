@@ -55,34 +55,28 @@ export default function BookingModal({ slot, onClose, onSuccess }: BookingModalP
         setError("");
         setSubmitting(true);
 
-        try {
-            const response = await fetch("/api/booking", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...formData,
-                    slot: {
-                        date: slot.date,
-                        time: slot.slotId,
-                        label: `${slot.slotLabel} (${slot.displayTime})`,
-                    },
-                }),
-            });
+        // For static export, use mailto link
+        const subject = encodeURIComponent(`Booking Request: ${formattedDate} - ${slot.slotLabel}`);
+        const body = encodeURIComponent(
+            `New Booking Request\n\n` +
+            `Date: ${formattedDate}\n` +
+            `Time: ${slot.slotLabel} (${slot.displayTime})\n\n` +
+            `Customer Details:\n` +
+            `Name: ${formData.name}\n` +
+            `Phone: ${formData.phone}\n` +
+            `Suburb: ${formData.suburb}\n\n` +
+            `Problem Description:\n${formData.description}`
+        );
 
-            if (response.ok) {
-                setSuccess(true);
-                setTimeout(() => {
-                    onSuccess();
-                }, 3000);
-            } else {
-                const data = await response.json();
-                setError(data.error || "Failed to submit booking. Please try again.");
-            }
-        } catch {
-            setError("Network error. Please check your connection and try again.");
-        }
+        // Open email client
+        window.location.href = `mailto:info@krakenairelectrical.com.au?subject=${subject}&body=${body}`;
 
+        setSuccess(true);
         setSubmitting(false);
+
+        setTimeout(() => {
+            onSuccess();
+        }, 3000);
     };
 
     return (

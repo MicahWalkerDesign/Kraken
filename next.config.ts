@@ -52,27 +52,19 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Security headers
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: securityHeaders,
-      },
-    ];
-  },
+  // Static export for GitHub Pages
+  output: "export",
 
-  // Performance optimizations
+  // Disable image optimization for static export
   images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    unoptimized: true,
   },
 
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-  },
+  // Base path for GitHub Pages (repo name)
+  basePath: process.env.NODE_ENV === "production" ? "/Kraken" : "",
+
+  // Trailing slashes for static hosting compatibility
+  trailingSlash: true,
 };
 
 export default nextConfig;

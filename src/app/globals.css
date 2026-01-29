@@ -10,40 +10,39 @@
   --color-primary-light: #5a2d87;
   --color-primary-dark: #2a1340;
 
-  /* Action - High visibility Blue (requested by user) */
-  --color-action: #5BC0EB;
-  --color-action-light: #8ad4f2;
-  --color-action-dark: #2da8d8;
-  --color-action-hover: #ffffff;
-  /* White hover for max contrast */
+  /* Action - High visibility for CTAs (from lightning bolt) */
+  --color-action: #FFD700;
+  --color-action-light: #ffe033;
+  --color-action-dark: #ccac00;
+  --color-action-hover: #fff0a0;
 
-  /* Secondary - Gold accent */
-  --color-secondary: #FFD700;
-  --color-secondary-light: #ffe033;
-  --color-secondary-dark: #ccac00;
+  /* Secondary - Freshness, represents Air/Cooling */
+  --color-secondary: #5BC0EB;
+  --color-secondary-light: #8ad4f2;
+  --color-secondary-dark: #2da8d8;
 
-  /* Neutral - High contrast text */
-  --color-neutral: #ffffff;
+  /* Neutral - Metallic finish for industrial feel */
+  --color-neutral: #E0E0E0;
   --color-neutral-light: #f5f5f5;
-  --color-neutral-dark: #d4d4d4;
-  --color-neutral-muted: #a0a0a0;
-  /* Lighter gray for readability */
+  --color-neutral-dark: #b0b0b0;
+  --color-neutral-muted: #A0A0A0;
 
-  /* Background - Deep Dark Navy/Black for contrast */
-  --background: #02040a;
-  --background-elevated: #0f1623;
-  --background-card: #151b2e;
-  --background-hover: #1e2538;
-  --foreground: #ffffff;
+  /* Background - Dark mode base for neon pop */
+  --background: #121212;
+  --background-elevated: #1e1e1e;
+  --background-card: #252525;
+  --background-hover: #2a2a2a;
+  --foreground: #E0E0E0;
 
   /* Service-Specific Accent Colors */
-  --color-electrical: var(--color-secondary);
-  --color-hvac: var(--color-action);
+  --color-electrical: var(--color-action);
+  --color-hvac: var(--color-secondary);
 
   /* Glows */
   --glow-gold: 0 0 20px rgba(255, 215, 0, 0.4);
-  --glow-blue: 0 0 20px rgba(91, 192, 235, 0.6);
-  --glow-blue-intense: 0 0 30px rgba(91, 192, 235, 0.8), 0 0 60px rgba(91, 192, 235, 0.4);
+  --glow-gold-intense: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.3);
+  --glow-blue: 0 0 20px rgba(91, 192, 235, 0.4);
+  --glow-blue-intense: 0 0 30px rgba(91, 192, 235, 0.6), 0 0 60px rgba(91, 192, 235, 0.3);
 
   /* Transitions */
   --transition-fast: 150ms ease;

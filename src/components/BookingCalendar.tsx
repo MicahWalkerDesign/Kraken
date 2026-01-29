@@ -72,19 +72,40 @@ export default function BookingCalendar() {
     weekStart.setDate(today.getDate() + weekOffset * 5); // Jump by 5 weekdays
     const weekDates = getWeekdayDates(weekStart, 5);
 
-    // For static export, show all slots as available
+    // Fetch availability when week changes
     useEffect(() => {
-        setLoading(true);
-        // Simulate loading then show all available
-        setTimeout(() => {
-            setAvailability(
-                weekDates.map((date) => ({
-                    date: formatDateKey(date),
-                    slots: { morning: true, midday: true, afternoon: true },
-                }))
-            );
+        const fetchAvailability = async () => {
+            setLoading(true);
+            try {
+                const startDate = formatDateKey(weekDates[0]);
+                const endDate = formatDateKey(weekDates[weekDates.length - 1]);
+
+                const response = await fetch(`/api/availability?start=${startDate}&end=${endDate}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setAvailability(data.availability);
+                } else {
+                    // If API fails, show all slots as available (fallback for development)
+                    setAvailability(
+                        weekDates.map((date) => ({
+                            date: formatDateKey(date),
+                            slots: { morning: true, midday: true, afternoon: true },
+                        }))
+                    );
+                }
+            } catch {
+                // Fallback: show all available
+                setAvailability(
+                    weekDates.map((date) => ({
+                        date: formatDateKey(date),
+                        slots: { morning: true, midday: true, afternoon: true },
+                    }))
+                );
+            }
             setLoading(false);
-        }, 300);
+        };
+
+        fetchAvailability();
     }, [weekOffset]);
 
     const handleSlotClick = (date: Date, slot: typeof TIME_SLOTS[number]) => {

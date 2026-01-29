@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BookingCalendar from "@/components/BookingCalendar";
 import MagneticButton from "@/components/MagneticButton";
 import Link from "next/link";
+import ClientBookingWrapper from "@/components/ClientBookingWrapper";
 
 export default function Home() {
   return (
@@ -334,7 +334,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold mb-2">Fully Licensed</h4>
+                <h3 className="text-lg font-semibold mb-2">Fully Licensed</h3>
                 <p className="text-[var(--color-neutral-muted)] text-sm">
                   ARC and Electrical licenses for complete peace of mind.
                 </p>
@@ -364,7 +364,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold mb-2">Local Expert</h4>
+                <h3 className="text-lg font-semibold mb-2">Local Expert</h3>
                 <p className="text-[var(--color-neutral-muted)] text-sm">
                   Based in Northern Suburbs, serving Joondalup to Alkimos.
                 </p>
@@ -388,7 +388,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold mb-2">Quick Response</h4>
+                <h3 className="text-lg font-semibold mb-2">Quick Response</h3>
                 <p className="text-[var(--color-neutral-muted)] text-sm">
                   Same day service available for urgent repairs.
                 </p>
@@ -412,7 +412,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold mb-2">Quality Work</h4>
+                <h3 className="text-lg font-semibold mb-2">Quality Work</h3>
                 <p className="text-[var(--color-neutral-muted)] text-sm">
                   Professional workmanship with attention to detail.
                 </p>
@@ -500,7 +500,7 @@ export default function Home() {
               {/* Booking Calendar */}
               <div className="lg:col-span-2 order-1 lg:order-2">
                 <div className="card p-6">
-                  <BookingCalendar />
+                  <ClientBookingWrapper />
                 </div>
               </div>
             </div>

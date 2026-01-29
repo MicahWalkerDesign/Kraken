@@ -52,22 +52,27 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Static export for GitHub Pages
-  output: "export",
-
-  // Disable image optimization for static export
-  images: {
-    unoptimized: true,
+  // Security headers
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+    ];
   },
 
-  // Base path for GitHub Pages (repo name)
-  basePath: "/Kraken",
+  // Performance optimizations
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+  },
 
-  // Asset prefix for static files
-  assetPrefix: "/Kraken",
-
-  // Trailing slashes for static hosting compatibility
-  trailingSlash: true,
+  // Experimental features for better performance
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 export default nextConfig;

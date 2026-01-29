@@ -28,8 +28,28 @@ interface SelectedSlot {
     displayTime: string;
 }
 
-// Get next 10 weekdays (2 business weeks)
-function getWeekdayDates(startDate: Date, count: number = 5): Date[] {
+// Hook to detect mobile vs desktop
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        // Check on mount
+        checkMobile();
+
+        // Listen for resize
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    return isMobile;
+}
+
+// Get next N weekdays (skip weekends)
+function getWeekdayDates(startDate: Date, count: number): Date[] {
     const dates: Date[] = [];
     const current = new Date(startDate);
 
@@ -59,6 +79,9 @@ function formatDayLabel(date: Date): { day: string; date: string; isToday: boole
 }
 
 export default function BookingCalendar() {
+    const isMobile = useIsMobile();
+    const daysToShow = isMobile ? 3 : 5; // 3 days on mobile, 5 on desktop
+
     const [weekOffset, setWeekOffset] = useState(0);
     const [availability, setAvailability] = useState<SlotAvailability[]>([]);
     const [loading, setLoading] = useState(true);
@@ -69,8 +92,8 @@ export default function BookingCalendar() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const weekStart = new Date(today);
-    weekStart.setDate(today.getDate() + weekOffset * 5); // Jump by 5 weekdays
-    const weekDates = getWeekdayDates(weekStart, 5);
+    weekStart.setDate(today.getDate() + weekOffset * daysToShow); // Jump by daysToShow
+    const weekDates = getWeekdayDates(weekStart, daysToShow);
 
     // Fetch availability when week changes
     useEffect(() => {
@@ -206,8 +229,8 @@ export default function BookingCalendar() {
 
             {/* Calendar Grid */}
             {loading ? (
-                <div className="grid grid-cols-5 gap-2">
-                    {Array.from({ length: 5 }).map((_, i) => (
+                <div className={`grid ${isMobile ? 'grid-cols-3' : 'grid-cols-5'} gap-2`}>
+                    {Array.from({ length: daysToShow }).map((_, i) => (
                         <div key={i} className="animate-pulse">
                             <div className="h-8 bg-[var(--background-card)] rounded mb-2" />
                             <div className="space-y-2">
@@ -222,7 +245,7 @@ export default function BookingCalendar() {
                     ))}
                 </div>
             ) : (
-                <div className="grid grid-cols-5 gap-2 md:gap-3">
+                <div className={`grid ${isMobile ? 'grid-cols-3' : 'grid-cols-5'} gap-2 md:gap-3`}>
                     {weekDates.map((date) => {
                         const { day, date: dateStr, isToday } = formatDayLabel(date);
                         return (

@@ -8,10 +8,10 @@ export default function Footer() {
     return (
         <footer className="bg-gradient-dark relative metallic-sheen">
             <div className="container mx-auto px-4 py-12">
-                {/* Main Footer Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                    {/* Brand Column */}
-                    <div>
+                {/* Main Footer Grid - 2 cols on mobile for Services/Areas, 4 on desktop */}
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
+                    {/* Brand Column - spans full width on mobile */}
+                    <div className="col-span-2 lg:col-span-1">
                         <div className="flex items-center gap-3 mb-4">
                             <Image
                                 src="/logo.jpg"
@@ -91,8 +91,8 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact Column */}
-                    <div>
+                    {/* Contact Column - spans full width on mobile */}
+                    <div className="col-span-2 lg:col-span-1">
                         <h4 className="text-[var(--foreground)] font-semibold mb-4">
                             Contact
                         </h4>

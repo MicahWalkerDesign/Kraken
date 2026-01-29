@@ -11,8 +11,8 @@ export default function Footer() {
                 {/* Main Footer Grid - 2 cols on mobile for Services/Areas, 4 on desktop */}
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
                     {/* Brand Column - spans full width on mobile */}
-                    <div className="col-span-2 lg:col-span-1">
-                        <div className="flex items-center gap-3 mb-4">
+                    <div className="col-span-2 lg:col-span-1 text-center lg:text-left">
+                        <div className="flex items-center gap-3 mb-4 justify-center lg:justify-start">
                             <Image
                                 src="/logo.jpg"
                                 alt="Kraken Air & Electrical"
@@ -92,7 +92,7 @@ export default function Footer() {
                     </div>
 
                     {/* Contact Column - spans full width on mobile */}
-                    <div className="col-span-2 lg:col-span-1">
+                    <div className="col-span-2 lg:col-span-1 text-center lg:text-left">
                         <h4 className="text-[var(--foreground)] font-semibold mb-4">
                             Contact
                         </h4>
@@ -100,7 +100,7 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="tel:+61400000000"
-                                    className="flex items-center gap-2 text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors font-semibold"
+                                    className="inline-flex items-center gap-2 text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors font-semibold justify-center lg:justify-start"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -122,11 +122,11 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="mailto:info@krakenairelectrical.com.au"
-                                    className="flex items-center gap-2 text-[var(--color-neutral-muted)] hover:text-[var(--foreground)] transition-colors text-sm"
+                                    className="inline-flex items-center gap-2 text-[var(--color-neutral-muted)] hover:text-[var(--foreground)] transition-colors text-sm justify-center lg:justify-start"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="h-4 w-4"
+                                        className="h-4 w-4 flex-shrink-0"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"

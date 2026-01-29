@@ -376,19 +376,19 @@ export default function AirConditioningPage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className="section bg-[var(--color-secondary)] relative overflow-hidden" id="booking">
+                <section className="section bg-gradient-dark relative overflow-hidden" id="booking">
                     <div className="container mx-auto text-center relative z-10">
-                        <h2 className="mb-4 text-[var(--background)]">
+                        <h2 className="mb-4 text-[var(--foreground)]">
                             Need AC Service Today?
                         </h2>
-                        <p className="text-[var(--background)]/80 max-w-xl mx-auto mb-8">
+                        <p className="text-[var(--color-neutral-muted)] max-w-xl mx-auto mb-8">
                             Don&apos;t sweat it out. Call now for fast, professional air
                             conditioning service in Perth&apos;s Northern Suburbs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="tel:+61400000000"
-                                className="px-8 py-4 text-lg rounded-xl bg-[var(--background)] text-[var(--color-secondary)] font-semibold hover:bg-[var(--background-elevated)] transition-colors inline-flex items-center justify-center gap-2"
+                                className="btn-primary px-8 py-4 text-lg rounded-xl"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -408,7 +408,7 @@ export default function AirConditioningPage() {
                             </a>
                             <Link
                                 href="/contact"
-                                className="px-8 py-4 text-lg rounded-xl bg-white/10 text-[var(--background)] border border-[var(--background)]/20 hover:bg-white/20 transition-colors font-semibold"
+                                className="btn-ghost px-8 py-4 text-lg rounded-xl"
                             >
                                 Request a Quote
                             </Link>

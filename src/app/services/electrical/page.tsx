@@ -371,20 +371,10 @@ export default function ElectricalPage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className="section bg-[var(--color-primary)] relative overflow-hidden" id="booking">
-                    <div className="absolute inset-0 opacity-10">
-                        <div
-                            className="absolute inset-0"
-                            style={{
-                                backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-action) 1px, transparent 0)`,
-                                backgroundSize: "30px 30px",
-                            }}
-                        />
-                    </div>
-
+                <section className="section bg-gradient-dark relative overflow-hidden" id="booking">
                     <div className="container mx-auto text-center relative z-10">
-                        <h2 className="mb-4 text-white">Need an Electrician?</h2>
-                        <p className="text-white/80 max-w-xl mx-auto mb-8">
+                        <h2 className="mb-4 text-[var(--foreground)]">Need an Electrician?</h2>
+                        <p className="text-[var(--color-neutral-muted)] max-w-xl mx-auto mb-8">
                             From simple repairs to complete rewires, we&apos;re here to help.
                             Call now for professional electrical service in Perth&apos;s
                             Northern Suburbs.
@@ -412,7 +402,7 @@ export default function ElectricalPage() {
                             </a>
                             <Link
                                 href="/contact"
-                                className="px-8 py-4 text-lg rounded-xl bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-colors font-semibold"
+                                className="btn-ghost px-8 py-4 text-lg rounded-xl"
                             >
                                 Request a Quote
                             </Link>

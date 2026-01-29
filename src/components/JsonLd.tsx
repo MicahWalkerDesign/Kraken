@@ -120,6 +120,50 @@ export default function JsonLd() {
         },
     };
 
+    // WebSite schema for sitelinks search box
+    const webSiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://krakenairelectrical.com.au/#website",
+        url: "https://krakenairelectrical.com.au",
+        name: "Kraken Air & Electrical",
+        publisher: {
+            "@id": "https://krakenairelectrical.com.au/#business",
+        },
+    };
+
+    // FAQ Schema for common questions
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+            {
+                "@type": "Question",
+                name: "What areas do you service?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "We service Perth's Northern Suburbs including Joondalup, Wanneroo, Mindarie, Clarkson, Butler, and Alkimos.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "Do you offer same-day service?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes, we offer same-day service for urgent air conditioning and electrical repairs. Call us for emergency callouts.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "Are you licensed?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes, we are fully licensed with both ARC (refrigerant handling) and Electrical licenses for complete peace of mind.",
+                },
+            },
+        ],
+    };
+
     return (
         <>
             <script
@@ -138,6 +182,18 @@ export default function JsonLd() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(electricianSchema),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(webSiteSchema),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(faqSchema),
                 }}
             />
         </>

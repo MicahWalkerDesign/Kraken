@@ -30,12 +30,33 @@ export const metadata: Metadata = {
     "Refrigerant fluids specialist",
   ],
   authors: [{ name: "Kraken Air & Electrical" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: "Kraken Air & Electrical | Perth Northern Suburbs",
     description:
       "Professional air conditioning and electrical services in Perth's Northern Suburbs.",
     locale: "en_AU",
     type: "website",
+    siteName: "Kraken Air & Electrical",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kraken Air & Electrical | Perth Northern Suburbs",
+    description: "Professional air conditioning and electrical services.",
+  },
+  metadataBase: new URL("https://krakenairelectrical.com.au"),
+  alternates: {
+    canonical: "/",
+  },
+  other: {
+    "theme-color": "#121212",
   },
 };
 
@@ -47,6 +68,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to Google Fonts for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <JsonLd />
       </head>
       <body

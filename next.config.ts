@@ -72,8 +72,11 @@ const nextConfig: NextConfig = {
   },
 
   // Images must be unoptimized for static export
+  // Use custom loader to prepend basePath
   images: {
     unoptimized: true,
+    loader: 'custom',
+    loaderFile: './src/lib/imageLoader.ts',
   },
 
   // Experimental features for better performance

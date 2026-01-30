@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === 'production';
+const repoName = 'Kraken';
+
 const securityHeaders = [
   {
     key: "X-DNS-Prefetch-Control",
@@ -52,7 +55,13 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Security headers
+  // GitHub Pages static export
+  output: 'export',
+  basePath: isProd ? `/${repoName}` : '',
+  assetPrefix: isProd ? `/${repoName}/` : '',
+  trailingSlash: true,
+
+  // Security headers (only work with custom server, not gh-pages)
   async headers() {
     return [
       {
@@ -62,11 +71,9 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // Performance optimizations
+  // Images must be unoptimized for static export
   images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    unoptimized: true,
   },
 
   // Experimental features for better performance

@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getImagePath } from "@/lib/paths";
 
 export const metadata: Metadata = {
     title: "About | Kraken Air & Electrical Perth",
@@ -35,8 +35,9 @@ export default function AboutPage() {
                             {/* Image */}
                             <div className="relative">
                                 <div className="aspect-square rounded-2xl bg-[var(--background-card)] overflow-hidden border border-white/5">
-                                    <Image
-                                        src="/logo.jpg"
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={getImagePath("/logo.jpg")}
                                         alt="Kraken Air & Electrical"
                                         width={500}
                                         height={500}

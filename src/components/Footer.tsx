@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { getImagePath } from "@/lib/paths";
 
 export default function Footer() {
     // Use a fixed year during build time to avoid hydration mismatch
@@ -13,8 +13,9 @@ export default function Footer() {
                     {/* Brand Column - spans full width on mobile */}
                     <div className="col-span-2 lg:col-span-1 text-center lg:text-left">
                         <div className="flex items-center gap-3 mb-4 justify-center lg:justify-start">
-                            <Image
-                                src="/logo.jpg"
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={getImagePath("/logo.jpg")}
                                 alt="Kraken Air & Electrical"
                                 width={48}
                                 height={48}

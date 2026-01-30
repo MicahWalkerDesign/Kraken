@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { getImagePath } from "@/lib/paths";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,13 +12,13 @@ export default function Header() {
             <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-3 group">
-                    <Image
-                        src="/logo.jpg"
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                        src={getImagePath("/logo.jpg")}
                         alt="Kraken Air & Electrical"
                         width={48}
                         height={48}
                         className="rounded-full border-2 border-[var(--color-action)] group-hover:shadow-[var(--glow-gold)] transition-shadow"
-                        priority
                     />
                     <div className="hidden sm:block">
                         <span className="text-xl font-bold text-[var(--foreground)] font-[var(--font-montserrat)]">
